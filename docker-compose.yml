@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  ftm-be:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 44377:44377
+      - 3000:80
+
+  ftm-db:
+    image: mohuk/ftm-db
+    ports:
+      - 1433:1433
+    environment:
+      - sa_password=10Pearls!
+      - ACCEPT_EULA=Y
